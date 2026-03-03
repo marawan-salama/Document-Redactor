@@ -1,0 +1,44 @@
+{
+  "name": "document-redactor-addin",
+  "version": "1.0.0",
+  "private": true,
+  "config": {
+    "app_to_debug": "word",
+    "app_type_to_debug": "desktop",
+    "dev_server_port": 3000
+  },
+  "scripts": {
+  "start": "vite",
+  "dev": "vite",
+  "build": "tsc && vite build",
+  "preview": "vite preview --port 3000"
+},
+  "dependencies": {
+    "@microsoft/office-js": "^1.1.4",
+    "@types/office-js": "^1.0.358",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/office-js": "^1.0.358",
+    "@vitejs/plugin-react": "^4.2.1",
+    "office-addin-dev-certs": "^1.13.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.12"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

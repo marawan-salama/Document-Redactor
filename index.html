@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document Redaction Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval' data: blob:;" />
+
+    <!-- Office JavaScript API -->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Fluent UI -->
+    <link
+      rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.1.0/css/fabric.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #root {
+        height: 100%;
+      }
+
+      .error-message {
+        color: #a80000;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #fde7e9;
+        border-left: 4px solid #a80000;
+      }
+    </style>
+  </head>
+
+  <body class="ms-welcome ms-Fabric">
+    <div id="root"></div>
+
+    <script type="module" src="/src/index.tsx"></script>
+
+    <script>
+      Office.onReady((info) => {
+        if (info.host !== Office.HostType.Word) {
+          const root = document.getElementById("root");
+          if (root) {
+            root.innerHTML = `
+              <div class="error-message">
+                This add-in only works in Microsoft Word. Please open it inside Word.
+              </div>
+            `;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
